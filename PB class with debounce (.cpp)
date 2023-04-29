@@ -1,0 +1,31 @@
+#include "PB.h"
+#include <Arduino.h>
+// Default constructor
+PushButton::PushButton() {}
+// Constructor being used
+PushButton::PushButton(int pin) {
+// Initialize instance variables
+this->pin = pin;
+this->state = false;
+this->last_state = false;
+// Set pinMode to INPUT_PULLUP
+pinMode(pin, INPUT_PULLUP);
+}
+
+// Read the current state of the button
+bool PushButton::read() 
+{
+// Save the last state
+this->last_state = this->state;
+// Read the current state of the button
+this->state = digitalRead(pin);
+// Return the current state
+return this->state;
+}
+// Check if the button is currently pressed
+bool PushButton::is_pressed() 
+{
+// Return true if the button is currently pressed (state is HIGH) and
+// was not pressed in the last iteration (last_state is LOW)
+return this->state && !this->last_state;
+}
