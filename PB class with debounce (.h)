@@ -1,0 +1,19 @@
+#ifndef PB_H
+#define PB_H
+//this names the class 
+class PushButton {
+
+private:
+int pin;
+bool state;
+bool last_state;
+
+public:
+PushButton(); //contructor not being used
+PushButton(int pin);  //constructor being used
+bool read();  //read method
+bool is_pressed();  //is_pressed method
+};
+
+#endif
+
