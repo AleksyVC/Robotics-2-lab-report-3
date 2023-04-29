@@ -1,0 +1,20 @@
+#include "LED.h"
+#include <Arduino.h>
+
+// Constructor - store the pin number for later use
+LED::LED(int pin) : m_pin(pin) {}
+
+// Initialize the LED pin as an output
+void LED::initialize() {
+pinMode(m_pin, OUTPUT); // Set the LED pin to output mode
+}
+
+// Turn the LED on by setting the pin to HIGH
+void LED::on() {
+digitalWrite(m_pin, HIGH);
+}
+
+// Turn the LED off by setting the pin to LOW
+void LED::off() {
+digitalWrite(m_pin, LOW);
+}
