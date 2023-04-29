@@ -1,0 +1,52 @@
+#include "LedButtonCounter.h"
+
+LedButtonCounter::LedButtonCounter(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin) {
+_ledPin1 = ledPin1;
+_ledPin2 = ledPin2;
+_ledPin3 = ledPin3;
+_ledPin4 = ledPin4;
+_buttonPin = buttonPin;
+_currentLed = 0;
+}
+
+void LedButtonCounter::init() {
+// Set the LED pins as outputs
+pinMode(_ledPin1, OUTPUT);
+pinMode(_ledPin2, OUTPUT);
+pinMode(_ledPin3, OUTPUT);
+pinMode(_ledPin4, OUTPUT);
+
+// Set the push button pin as an input
+pinMode(_buttonPin, INPUT_PULLUP);
+}
+
+void LedButtonCounter::counter() {
+// Check if the button is pressed
+if (digitalRead(_buttonPin) == LOW) {
+// Turn off all the LEDs
+digitalWrite(_ledPin1, LOW);
+digitalWrite(_ledPin2, LOW);
+digitalWrite(_ledPin3, LOW);
+digitalWrite(_ledPin4, LOW);
+
+// Increment the current LED index
+_currentLed++;
+if (_currentLed > 4) {
+_currentLed = 1;
+}
+
+// Light up the current LED
+if (_currentLed == 1) {
+digitalWrite(_ledPin1, HIGH);
+} else if (_currentLed == 2) {
+digitalWrite(_ledPin2, HIGH);
+} else if (_currentLed == 3) {
+digitalWrite(_ledPin3, HIGH);
+} else if (_currentLed == 4) {
+digitalWrite(_ledPin4, HIGH);
+}
+
+// Wait for a short period to debounce the button
+delay(500);
+}
+}
