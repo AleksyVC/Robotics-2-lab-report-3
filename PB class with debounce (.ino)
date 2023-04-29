@@ -1,0 +1,17 @@
+#include "PB.h"
+#include <Arduino.h>
+//defines which pin the button is connected to
+int button_pin = 13;
+PushButton button(button_pin); //creates an object called button
+
+
+void setup() {
+Serial.begin(9600);
+}
+
+void loop() {
+button.read();  //this calls the read method with the button object
+if (button.is_pressed()) {        //this let's us know if the button is pressed or not by printing Button pressed when it is
+Serial.println("Button Pressed");
+}
+}
