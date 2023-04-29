@@ -1,0 +1,20 @@
+#ifndef LED_H
+#define LED_H
+
+class LED {
+public:
+// Constructor - sets the pin number for the LED
+LED(int pin);
+
+// Initialize the LED pin as an output
+void initialize();
+// Turn the LED on
+void on();
+// Turn the LED off
+void off();
+
+private:
+int m_pin; // The pin number for the LED
+};
+
+#endif // LED_H
