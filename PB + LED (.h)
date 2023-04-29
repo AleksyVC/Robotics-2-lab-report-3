@@ -1,0 +1,23 @@
+#ifndef LedButtonCounter_h
+#define LedButtonCounter_h
+
+#include "Arduino.h"
+
+class LedButtonCounter {
+public:
+LedButtonCounter(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin);
+void init();
+void counter();
+
+private:
+int _ledPin1;
+int _ledPin2;
+int _ledPin3;
+int _ledPin4;
+int _buttonPin;
+int _currentLed;
+};
+
+#endif
+
+
