@@ -1,0 +1,18 @@
+#include "LedButtonCounter.h"
+
+const int LED_PIN_1 = 2;
+const int LED_PIN_2 = 3;
+const int LED_PIN_3 = 4;
+const int LED_PIN_4 = 5;
+const int BUTTON_PIN = 13;
+
+LedButtonCounter ledButtonCounter(LED_PIN_1, LED_PIN_2, LED_PIN_3, LED_PIN_4, BUTTON_PIN);
+
+void setup() {
+ledButtonCounter.init();
+}
+
+void loop() {
+ledButtonCounter.counter();
+}
+
