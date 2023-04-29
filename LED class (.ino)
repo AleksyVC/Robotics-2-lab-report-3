@@ -1,0 +1,15 @@
+#include <Arduino.h>
+#include "LED.h"
+
+LED myLED(13); // Create an instance of the LED class, using pin 13
+
+void setup() {
+myLED.initialize(); // Initialize the LED pin as an output
+}
+
+void loop() {
+myLED.on(); // Turn the LED on
+delay(1000); // Wait for 1 second
+myLED.off(); // Turn the LED off
+delay(1000); // Wait for 1 second
+}
